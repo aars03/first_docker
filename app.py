@@ -1,5 +1,8 @@
 # app.py
+
 from flask import Flask, request, render_template_string
+
+
 
 app = Flask(__name__)
 
@@ -12,8 +15,11 @@ def is_palindrome(s):
 def palindrome_checker():
     if request.method == 'POST':
         user_input = request.form.get('input_string', '')
+
+
         if is_palindrome(user_input):
             result = f"'{user_input}' is a palindrome!"
+            
         else:
             result = f"'{user_input}' is not a palindrome."
         return render_template_string(
@@ -41,4 +47,4 @@ def palindrome_checker():
         )
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8082)
+    app.run(host='0.0.0.0', port=int(8083))
